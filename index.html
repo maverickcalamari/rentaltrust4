@@ -1,0 +1,22 @@
+# Create a root-level index.html that points to one of the main.tsx files
+index_html_content = """\
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RentalTrust Super</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/client/src/main.tsx"></script>
+  </body>
+</html>
+"""
+
+index_html_path = super_final_path / "index.html"
+with open(index_html_path, "w") as f:
+    f.write(index_html_content)
+
+# Check for vite.config.ts to patch if needed
+vite_config_files = list(super_final_path.rglob("vite.config.ts"))
+vite_config_files
