@@ -1,0 +1,22 @@
+# Create a root-level vite.config.ts compatible with the new structure
+vite_config_content = """\
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  root: '.',
+  build: {
+    rollupOptions: {
+      input: 'index.html'
+    },
+    outDir: 'dist'
+  }
+})
+"""
+
+vite_config_path = super_final_path / "vite.config.ts"
+with open(vite_config_path, "w") as f:
+    f.write(vite_config_content)
+
+vite_config_path
